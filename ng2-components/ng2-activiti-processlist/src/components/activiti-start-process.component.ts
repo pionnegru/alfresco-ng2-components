@@ -21,6 +21,7 @@ import { ActivitiProcessService } from './../services/activiti-process.service';
 
 declare let componentHandler: any;
 declare let __moduleName: string;
+declare let dialogPolyfill: any;
 
 @Component({
     selector: 'activiti-start-process',
@@ -76,6 +77,10 @@ export class ActivitiStartProcessButton implements OnInit {
 
     public showDialog() {
         if (this.dialog) {
+            if (dialogPolyfill) {
+                console.log('dialog polyfill');
+                dialogPolyfill.registerDialog(this.dialog.nativeElement);
+            }
             this.dialog.nativeElement.showModal();
         }
     }

@@ -76,6 +76,7 @@
     "pdfjs-dist": "1.5.404",
     "flag-icon-css": "2.3.0",
     "intl": "1.2.4",
+    "dialog-polyfill": "^0.4.4",
     "ng2-alfresco-core": "0.3.0",
     "ng2-alfresco-datatable": "0.3.0",
     "ng2-alfresco-documentlist": "0.3.0",
