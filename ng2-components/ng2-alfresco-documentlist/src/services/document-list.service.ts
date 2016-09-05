@@ -60,10 +60,7 @@ export class DocumentListService {
         'application/vnd.apple.numbers': 'ft_ic_spreadsheet.svg'
     };
 
-    constructor(
-        private authService: AlfrescoAuthenticationService,
-        private contentService: AlfrescoContentService
-    ) {
+    constructor(private authService: AlfrescoAuthenticationService, private contentService: AlfrescoContentService) {
     }
 
     private getAlfrescoApi() {
