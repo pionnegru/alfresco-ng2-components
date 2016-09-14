@@ -1,7 +1,11 @@
 
 import { Component } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
+
+import { DocumentList } from 'ng2-alfresco-documentlist';
 import { Ng2AlfrescoMetadataComponent } from 'ng2-alfresco-metadata';
+
+console.log(DocumentList);
 
 @Component({
     selector: 'metadata-demo',
@@ -11,7 +15,9 @@ import { Ng2AlfrescoMetadataComponent } from 'ng2-alfresco-metadata';
             class="mdl-cell mdl-cell--8-col">
         </ng2-alfresco-metadata>
     `,
-    directives: [Ng2AlfrescoMetadataComponent]
+    directives: [
+        Ng2AlfrescoMetadataComponent
+    ]
 })
 class MyDemoApp {
     constructor() {
