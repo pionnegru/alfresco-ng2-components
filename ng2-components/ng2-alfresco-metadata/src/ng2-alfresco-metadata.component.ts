@@ -1,9 +1,31 @@
+import { Component, Input, OnInit } from '@angular/core';
 
-import { Component } from '@angular/core';
+declare let __moduleName: string;
 
 @Component({
+    moduleId: __moduleName,
     selector: 'ng2-alfresco-metadata',
-    styles: [`:host h1 { font-size:22px }`],
-    template: `<h1>World of xxx Angular 2 ng2-alfresco-metadata</h1>`
+    templateUrl: './ng2-alfresco-metadata.component.html'
 })
-export class Ng2AlfrescoMetadataComponent {}
+export class Ng2AlfrescoMetadataComponent implements OnInit {
+    @Input() nodeId: number;
+    loaded: boolean = false;
+
+    constructor() {
+        console.log('Is it me?', this);
+    }
+
+    ngOnInit() {
+        setTimeout(() => {
+            this.loaded = true;
+        }, 1000);
+    }
+
+    get isSomething():boolean {
+        return false;
+    }
+
+    get isSomethingElse():boolean {
+        return !this.isSomething;
+    }
+}
