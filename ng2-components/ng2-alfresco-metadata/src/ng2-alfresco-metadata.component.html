@@ -1,7 +1,56 @@
-<div class="mdl-card mdl-shadow--2dp" style="width:auto">
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">
-            Metadata for Node #{{nodeId}}
-        </h2>
-    </div>
+<div class="metadata-title">
+    <h5>Metadata for Node #{{nodeId}}</h5>
+</div>
+
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+    <a href="#metadata-details" class="mdl-tabs__tab is-active">Details</a>
+    <a href="#metadata-activity" class="mdl-tabs__tab">Activity</a>
+    <a href="#metadata-sharing" class="mdl-tabs__tab">Sharing</a>
+  </div>
+
+  <div class="mdl-tabs__panel is-active" id="metadata-details">
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">Advanced options</h2>
+        </div>
+        
+        <div class="mdl-card__actions mdl-card--border">
+          <ul class="mdl-list">
+            <li class="mdl-list__item">
+              <span class="mdl-list__item-primary-content">
+                Bryan Cranston
+              </span>
+              <span class="mdl-list__item-secondary-action">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
+                  <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
+                </label>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <!--        
+        <div class="mdl-card__actions mdl-card--border">
+          something here
+        </div>
+        -->
+
+        <div class="mdl-card__menu">
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">settings</i>
+          </button>
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">edit</i>
+          </button>
+        </div>
+     </div>
+  </div>
+
+  <div class="mdl-tabs__panel" id="metadata-activity">
+    <p>Tab 2 Content</p>
+  </div>
+
+  <div class="mdl-tabs__panel" id="metadata-sharing">
+    <p>Tab 3 Content</p>
+  </div>
 </div>

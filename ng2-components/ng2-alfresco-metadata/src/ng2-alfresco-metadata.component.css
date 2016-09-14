@@ -1,0 +1,40 @@
+:host {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #eee;
+  border: 1px solid rgba(0,0,0, .12);
+}
+
+:host > .metadata-title {
+  padding: 15px 24px;
+  background: #fff;
+}
+
+:host > .metadata-title > h5 {
+  margin: 0;
+}
+
+:host > .mdl-tabs > .mdl-tabs__tab-bar {
+  background: #fff;
+}
+
+:host > .mdl-tabs > .mdl-tabs__panel {
+  padding: 5px;
+}
+
+:host > .mdl-tabs .mdl-card {
+  min-height: 0;
+}
+
+:host > .mdl-tabs .mdl-card > .mdl-card__title {}
+:host > .mdl-tabs .mdl-card > .mdl-card__title > .mdl-card__title-text {
+  font-size: 14px;
+  opacity: .5;
+  font-weight: 500;
+}
+
+:host > .mdl-tabs .mdl-card > .mdl-card__menu {
+  top: 10px;
+}

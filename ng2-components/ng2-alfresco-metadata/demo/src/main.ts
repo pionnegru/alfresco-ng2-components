@@ -34,11 +34,22 @@ import {
     DocumentActionsService
 } from 'ng2-alfresco-documentlist';
 
+import {
+    Ng2AlfrescoMetadataComponent
+} from 'ng2-alfresco-metadata';
+
 @Component({
     selector: 'metadata-demo',
+    styles: [':host > .container {padding: 10px}'],
+    directives: [
+        DOCUMENT_LIST_DIRECTIVES,
+        CONTEXT_MENU_DIRECTIVES,
+        Ng2AlfrescoMetadataComponent
+    ],
+    providers: [DOCUMENT_LIST_PROVIDERS],
+    pipes: [AlfrescoPipeTranslate],
     template: `
-        <div class="container" *ngIf="authenticated">
-            <button (click)="documentList.reload()">Reload</button>
+        <div *ngIf="authenticated">
             <alfresco-document-list
                     #documentList
                     [currentFolderPath]="currentPath"
@@ -72,9 +83,9 @@ import {
                 <content-actions>
                     <!-- folder actions -->
                     <content-action
-                            target="folder"
-                            title="{{'DOCUMENT_LIST.ACTIONS.FOLDER.SYSTEM_1' | translate}}"
-                            handler="system1">
+                        target="folder"
+                        title="{{'DOCUMENT_LIST.ACTIONS.VIEW_DETAILS' | translate}}"
+                        (execute)="viewDetails($event)">
                     </content-action>
                     <content-action
                             target="folder"
@@ -110,13 +121,11 @@ import {
                     </content-action>
                 </content-actions>
             </alfresco-document-list>
+            <ng2-alfresco-metadata></ng2-alfresco-metadata>
             <context-menu-holder></context-menu-holder>
+            <button (click)="documentList.reload()">Reload</button>
         </div>
-    `,
-    styles: [':host > .container {padding: 10px}'],
-    directives: [DOCUMENT_LIST_DIRECTIVES, CONTEXT_MENU_DIRECTIVES],
-    providers: [DOCUMENT_LIST_PROVIDERS],
-    pipes: [AlfrescoPipeTranslate]
+    `
 })
 class MetadataDemo implements OnInit {
 
@@ -133,7 +142,6 @@ class MetadataDemo implements OnInit {
         translation: AlfrescoTranslationService,
         private documentActions: DocumentActionsService
     ) {
-
         settingsService.ecmHost = this.ecmHost;
         settingsService.setProviders('ECM');
 
@@ -175,10 +183,8 @@ class MetadataDemo implements OnInit {
     login() {
         this.authService.login('admin', 'admin').subscribe(
             ticket => {
-                console.log(ticket);
                 this.ticket = this.authService.getTicketEcm();
                 this.authenticated = true;
-                console.log(this);
             },
             error => {
                 console.log(error);
@@ -190,6 +196,10 @@ class MetadataDemo implements OnInit {
         if (event) {
             this.currentPath = event.path;
         }
+    }
+
+    viewDetails(event) {
+        console.log(event);
     }
 }
 
