@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AlfrescoMdlTabsDirective } from 'ng2-alfresco-core';
+// import { AlfrescoMdlTabsDirective } from 'ng2-alfresco-core';
 
 declare let __moduleName: string;
 
@@ -12,7 +12,6 @@ declare let __moduleName: string;
 export class Ng2AlfrescoMetadataComponent implements OnInit {
     @Input()
     nodeId: number;
-    
     loaded: boolean = false;
 
     constructor() {
