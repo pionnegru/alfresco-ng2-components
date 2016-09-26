@@ -23,22 +23,18 @@ export class Ng2AlfrescoMetadataComponent implements OnInit {
     }
 
     test(nodeId: string) {
-       console.log('some test calls');
-       //  this.metadataService.getNodeMetadata(nodeId)
-       //      .subscribe((result: Object) => {
-       //          console.log('I all the results! ', result);
-       //      });
+      this.metadataService.getNodeComments(nodeId)
+        .subscribe(
+          (response: Object) => console.log('comments', response),
+          (response: Error) => console.log('there was an error')
+        );
 
-       // this.metadataService.getNodeTags(nodeId)
-       //      .subscribe((result: Object) => {
-       //          console.log('I am the TAGS result! ', result);
-       //      });
-
-       // this.metadataService.test(nodeId)
-       //      .subscribe((result: Object) => {
-       //          console.log('test result! ', result);
-       //      });
-        }
+       this.metadataService.getNodeTags(nodeId)
+         .subscribe(
+           (response: Object) => console.log('tags', response),
+           (response: Error) => console.log('there was an error')
+         );
+     }
 
     ngOnInit() {
         setTimeout(() => {
